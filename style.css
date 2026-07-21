@@ -1,1 +1,135 @@
 
+  /* ========== Base / Mobile First ========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #0077b6;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+} 
+
+
+.logo { 
+  font-size: 1.3rem;
+  font-family: serif;
+  color: black;
+
+   }
+   .div-logo {
+     background-color: white;
+     padding: 10px;
+     border-radius: 50px 6px 50px;
+     }
+   
+     span { 
+     color: white;
+     background-color: red;
+     padding: 5px;
+     border-radius: 50px 6px 50px ;
+     font-family: none;
+    }
+
+
+.menu-toggle {
+  display: block; /* show on mobile */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: none; /* hide on mobile */
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: #005f94;
+}
+.nav-links.active { display: flex; } /* JS toggles this */
+.nav-links li { border-bottom: 1px solid #0077b6; }
+.nav-links a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-links a:hover { background: #004f7a; }
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #e6f7ff;
+}
+.hero h2 { font-size: 1.8rem; margin-bottom: 10px; }
+.hero p { margin-bottom: 20px; color: #333; }
+
+/* Hospital Cards */
+.hero-links {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 15px;
+  list-style: none;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero-links li a {
+  display: block;
+  padding: 18px;
+  background: white;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #0077b6;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+.hero-links li a:hover {
+  background: #0077b6;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ========== Tablet + Desktop ========== */
+@media (min-width: 768px) {
+  .menu-toggle { display: none; } /* hide hamburger */
+  
+  .nav-links {
+    display: flex; /* show links */
+    position: static;
+    flex-direction: row;
+    gap: 25px;
+    width: auto;
+    background: transparent;
+  }
+  .nav-links li { border: none; }
+  .nav-links a { padding: 0; }
+  .nav-links a:hover { background: transparent; text-decoration: underline; }
+
+  .hero { padding: 80px 40px; }
+  .hero h2 { font-size: 2.5rem; }
+
+  .hero-links {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-links {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+  }
+}
